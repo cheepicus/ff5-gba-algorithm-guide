@@ -1273,7 +1273,7 @@ Choco Kick, Fat Chocobo, Branch Arrow, Branch Spear)
 4) Damage = (Attack - Defense) * M.  Max Damage = 9999.
 
 ATTACK TYPE (HEX: <a class="anchor" name="0x0B">0B</a>) (Damage Based on Level: Delta Attack, Poison Breath, Bee 
-Swarm, Leaf Dance, Dust Storm, Will-o-Wisp, Poison Mist)
+Swarm, Leaf Swirl, Sandstorm, Ignus Fatuus, Poison Mist)
 1) Aegis Shield Check <a class="link" href="#6.3.2">(6.3.2)</a>
 2) Use Level Based Magic Damage Parameters <a class="link" href="#6.4.11">(6.4.11)</a>:
    Attack = (10..100)
@@ -1285,8 +1285,8 @@ Swarm, Leaf Dance, Dust Storm, Will-o-Wisp, Poison Mist)
 6) Damage = (Attack - Defense) * M.  Max Damage = 9999.
 7) Let N1 = (0..99).  If N1 &lt; Status Hit%, inflict Status Effects.
 
-ATTACK TYPE (HEX: <a class="anchor" name="0x0C">0C</a>) (HP Leak: Bio, Stomach Acid, Mustard Bomb, Almagest, 
-Quicksand, Frost, Shadow Flare)
+ATTACK TYPE (HEX: <a class="anchor" name="0x0C">0C</a>) (HP Leak: Bio, Digestive Acid, Mustard Bomb, Almagest, 
+Quicksand, Frost, Shadowflare)
 1) Aegis Shield Check <a class="link" href="#6.3.2">(6.3.2)</a>
 2) Use Flare Damage Parameters <a class="link" href="#6.4.2">(6.4.2)</a>: 
    Attack = Spell Attack + (0..(Spell Power/32))
@@ -1328,7 +1328,7 @@ ATTACK TYPE (HEX: <a class="anchor" name="0x0E">0E</a>) (Osmose, Lance, Mystery 
    is damaged.
 
 ATTACK TYPE (HEX: <a class="anchor" name="0x0F">0F</a>) (Reduce HP to Critical: Maelstrom, Bone, Tail Screw, 
-Hurricane, Antilixir, Tornado, Whirlpool)
+Hurricane, Antilixir, Twister, Whirlpool)
 1) Follow Hit Determination for Magical Attacks Steps <a class="link" href="#6.2.2">(6.2.2)</a>.
 2) If the Target is Heavy, attack misses;  do not follow any more steps.
 3) Let N1 = (1..9).  If Target's Current HP &gt; N1, Target's Current HP = N1.
@@ -1380,14 +1380,14 @@ ATTACK TYPE (HEX: <a class="anchor" name="0x15">15</a>) (Toggle Status: Mini, To
    If the Target already has that status, then the status will be cured.
 
 ATTACK TYPE (HEX: <a class="anchor" name="0x16">16</a>) (Status Effect 3, Mutually exclusive statuses: Slow, 
-Haste, Slowga, Hastega, Thread, Hasty-ade, Vine Hell)
+Haste, Slowga, Hastega, Thread, Hasty-ade, Bindweed)
 1) Follow Hit Determination for Magical Attacks Steps <a class="link" href="#6.2.2">(6.2.2)</a>.
 2) Inflict Status Effects.  
    If applying Slow status, remove Haste status effect.
    If applying Haste status, remove Slow status effect.
 
 ATTACK TYPE (HEX: <a class="anchor" name="0x17">17</a>) (Status Effect 1, Full Heal to Undead: Death, Death Potion,
-Faen Fantom, Roulette)
+Phantom, Roulette)
 1) If the Target is Undead, then Target's Current HP = Target's Max HP;
    do not follow any more steps.
 2) Follow Hit Determination for Magical Attacks Steps <a class="link" href="#6.2.2">(6.2.2)</a>.
@@ -1399,7 +1399,7 @@ Iainuki)
 2) Follow Hit Determination for Magical Attacks Steps <a class="link" href="#6.2.2">(6.2.2)</a>.
 3) Inflict Dead Status on Target.  Ignore Status Immunities.
 
-ATTACK TYPE (HEX: <a class="anchor" name="0x19">19</a>) (Poisona, Dispel, Gravity 100, Panacea, Remedy, Antidote, 
+ATTACK TYPE (HEX: <a class="anchor" name="0x19">19</a>) (Poisona, Dispel, 100 Gs, Panacea, Remedy, Antidote, 
 Smelling Salts, Eye Drops, Esuna)
 1) If the attacker has Confuse status, attack misses;
    do not follow any more steps.
@@ -2257,7 +2257,7 @@ ANIMALS
 3) If 0 &lt; N1 &lt; 5, cast Squirrel
 4) If 5 &lt;= N1 &lt; 10, cast Bee Swarm
 5) If 10 &lt;= N1 &lt; 20, cast Nightingale
-6) If 20 &lt;= N1 &lt; 30, cast Momonga
+6) If 20 &lt;= N1 &lt; 30, cast Tree Squirrel
 7) If 30 &lt;= N1 &lt; 40, cast Falcon
 8) If 40 &lt;= N1 &lt; 50, cast Skunk
 9) If 50 &lt;= N1 &lt; 60, cast Wild Boar
@@ -2341,40 +2341,40 @@ on the terrain type the party is currently on.  I have not, at this time,
 identified which entry corresponds to which terrain type.
 
              Spell 1       Spell 2        Spell 3       Spell 4
-Terrain 1    Gust          Earthquake     Gale Cut      Tornado
-Terrain 2    Branch Arrow  Leaf Dance     Branch Spear  Vine Hell
-Terrain 3    Dust Storm    Quicksand      Desert Storm  Heat Sand
-Terrain 4    Will-o-Wisp   Bottmlss Swmp  Poison Mist   Bottmlss Swamp
-Terrain 5    Tsunami       Faen Fantom    Whirlpool     Big Tsunami
-Terrain 6    Will-o-Wisp   Will-o-Wisp    Will-o-Wisp   Sonic Boom
-Terrain 7    Will-o-Wisp   Stalactite     Gale Cut      Cave-in
-Terrain 8    Will-o-Wisp   Stalactite     Whirlpool     Cave-in
-Terrain 9    Gale Cut      Gale Cut       Sonic Boom    Tornado
-Terrain 10   Gust          Gale Cut       Sonic Boom    Tornado
-Terrain 11   Gust          Gale Cut       Sonic Boom    Tornado
-Terrain 12   Gust          Gale Cut       Sonic Boom    Tornado
-Terrain 13   Gust          Gale Cut       Tornado       Tornado
-Terrain 14   Will-o-Wisp   Will-o-Wisp    Will-o-Wisp   Sonic Boom
-Terrain 15   Gust          Sonic Boom     Tornado       Tornado
-Terrain 16   Branch Arrow  Leaf Dance     Branch Spear  Vine Hell
-Terrain 17   Gust          Earthquake     Cave-in       Tornado
-Terrain 18   Will-o-Wisp   Poison Mist    Sonic Boom    Cave-in
-Terrain 19   Gale Cut      Gale Cut       Sonic Boom    Tornado
-Terrain 20   Branch Arrow  Leaf Dance     Branch Spear  Vine Hell
-Terrain 21   Gust          Gale Cut       Sonic Boom    Sonic Boom
-Terrain 22   Tsunami       Whirlpool      Big Tsunami   Waterfall
-Terrain 23   Gust          Earthquake     Tornado       Tornado
-Terrain 24   Gale Cut      Sonic Boom     Tornado       Tornado
-Terrain 25   Gale Cut      Gale Cut       Sonic Boom    Tornado
-Terrain 26   Tsunami       Whirlpool      Big Tsunami   Waterfall
-Terrain 27   Gust          Gale Cut       Sonic Boom    Sonic Boom
-Terrain 28   Gale Cut      Tornado        Sonic Boom    Tornado
-Terrain 29   Gale Cut      Gale Cut       Gale Cut      Gale Cut
-Terrain 30   Tsunami       Faen Fantom    Whirlpool     Big Tsunami
-Terrain 31   Dust Storm    Quicksand      Desert Storm  Heat Sand
-Terrain 32   Gale Cut      Gale Cut       Gale Cut      Gale Cut
-Terrain 33   Tornado       Gale Cut       Sonic Boom    Tornado
-Terrain 34   Tornado       Earthquake     Gale Cut      Tornado
+Terrain 1    Gust          Earthquake     Wind Slash    Twister
+Terrain 2    Branch Arrow  Leaf Swirl     Branch Spear  Bindweed
+Terrain 3    Sandstorm     Quicksand      Desert Storm  Burning Sands
+Terrain 4    Ignus Fatuus  Bottomless Bog Poison Mist   Bottomless Bog
+Terrain 5    Tsunami       Phantom        Whirlpool     Big Wave
+Terrain 6    Ignus Fatuus  Ignus Fatuus   Ignus Fatuus  Sonic Boom
+Terrain 7    Ignus Fatuus  Stalactite     Wind Slash    Cave-in
+Terrain 8    Ignus Fatuus  Stalactite     Whirlpool     Cave-in
+Terrain 9    Wind Slash    Wind Slash     Sonic Boom    Twister
+Terrain 10   Gust          Wind Slash     Sonic Boom    Twister
+Terrain 11   Gust          Wind Slash     Sonic Boom    Twister
+Terrain 12   Gust          Wind Slash     Sonic Boom    Twister
+Terrain 13   Gust          Wind Slash     Twister       Twister
+Terrain 14   Ignus Fatuus  Ignus Fatuus   Ignus Fatuus  Sonic Boom
+Terrain 15   Gust          Sonic Boom     Twister       Twister
+Terrain 16   Branch Arrow  Leaf Swirl     Branch Spear  Bindweed
+Terrain 17   Gust          Earthquake     Cave-in       Twister
+Terrain 18   Ignus Fatuus  Poison Mist    Sonic Boom    Cave-in
+Terrain 19   Wind Slash    Wind Slash     Sonic Boom    Twister
+Terrain 20   Branch Arrow  Leaf Swirl     Branch Spear  Bindweed
+Terrain 21   Gust          Wind Slash     Sonic Boom    Sonic Boom
+Terrain 22   Tsunami       Whirlpool      Big Wave      Waterfall
+Terrain 23   Gust          Earthquake     Twister       Twister
+Terrain 24   Wind Slash    Sonic Boom     Twister       Twister
+Terrain 25   Wind Slash    Wind Slash     Sonic Boom    Twister
+Terrain 26   Tsunami       Whirlpool      Big Wave      Waterfall
+Terrain 27   Gust          Wind Slash     Sonic Boom    Sonic Boom
+Terrain 28   Wind Slash    Twister        Sonic Boom    Twister
+Terrain 29   Wind Slash    Wind Slash     Wind Slash    Wind Slash
+Terrain 30   Tsunami       Phantom        Whirlpool     Big Wave
+Terrain 31   Sandstorm     Quicksand      Desert Storm  Burning Sands
+Terrain 32   Wind Slash    Wind Slash     Wind Slash    Wind Slash
+Terrain 33   Twister       Wind Slash     Sonic Boom    Twister
+Terrain 34   Twister       Earthquake     Wind Slash    Twister
 
 FLIRT
 Use Damage formula HEX: <a class="link" href="#0x49">49</a>
@@ -2433,7 +2433,7 @@ Immunity granted by: None
 <h4>DARKNESS</h4></a>
 For physical attacks, Hit% = Hit%/4 
 
-Inflicted by: Flash, Rainbow Wind, Needle, Skunk, Leaf Dance, Dust Storm, 
+Inflicted by: Flash, Rainbow Wind, Needle, Skunk, Leaf Swirl, Sandstorm, 
               Dark Sigh, Dark Gas, Dark Bow, Grand Cross
 
 Cured by:  Esuna, Panacea, Nightingale, Cure Blind, Remedy, Eye Drops, Chakra, 
@@ -2476,7 +2476,7 @@ Inflicted by: Float, Mighty Guard, Levisalve
 
 Note: Mighty Guard ignores Float status immunity.
 
-Cured by: Dispel, Gravity 100, Dead Status
+Cured by: Dispel, 100 Gs, Dead Status
 
 Immunity granted by: Zombie Status
 <a class="anchor" name="mini">
@@ -2515,7 +2515,7 @@ Immune to Dead Status.
 Cannot protect other party members with Cover.
 
 Inflicted by: Break, Break (Spellblade), Delta Attack, Beak, Embrace, White Hole, 
-              Evil Eye, Grand Cross
+              Demon Eye, Evil Eye, Grand Cross
 
 Cured by: Esuna, Panacea, Remedy, Gold Needle, Recover
 
@@ -2529,21 +2529,21 @@ If you die, all status effects are removed except for Darkness, Mini
 and Toad.
 
 Inflicted by: Reducing HP to 0, Blaster, White Hole, Grand Cross, Killer Bow,
-              Death, Roulette, Level 5 Death, Faen Fantom, Death Potion, Assassin's 
+              Death, Roulette, Level 5 Death, Phantom, Death Potion, Assassin's 
               Dagger, Death Sickle, Transfusion, Self-Destruct, TNT, Level 5 Death, No Clue,
               Vanish, Punishment, Banish (enemy magic), Countdown reaching
-              zero, Iainuki, Banish, Zantetsuken, Quicksand, Bottomless Swamp, 
+              zero, Iainuki, Banish, Zantetsuken, Quicksand, Bottomless Bog, 
               Raise, Arise, Resurrection, Flames of Rebirth, Reincarnate, 
               Phoenix Down, Kiss of Life and Revive
 
 Notes:
 i) Transfusion, Self-Destruct and TNT inflict Dead status on the caster and 
 ignores Dead status immunity
-ii) Death, Roulette, Level 5 Death, Faen Fantom, Death Potion, Assassin's Dagger and
+ii) Death, Roulette, Level 5 Death, Phantom, Death Potion, Assassin's Dagger and
 Death Sickle will fully heal the target instead of killing it if it is Undead.
 iii) Level 5 Death, No Clue, Vanish, Punishment, Banish (enemy magic) and 
 Countdown reaching zero ignore Dead status immunity.
-iv) Iainuki, Banish, Zantetsuken, Quicksand and Bottomless Swamp ignore Dead 
+iv) Iainuki, Banish, Zantetsuken, Quicksand and Bottomless Bog ignore Dead 
 status immunity but do not work against Heavy type creatures.
 v) Raise, Arise, Resurrection, Flames of Rebirth, Reincarnate, Phoenix Down, 
 Kiss of Life and Revive inflict Dead status on Undead targets, ignores 
@@ -2556,7 +2556,7 @@ Immunity granted by: Ribbon, Bone Mail, Lifeshield, Zombie Status, Stone
                      Status
 
 Note: Dragon Kiss will grant immunity to Iainuki, Banish, Zantetsuken, Quicksand
-and Bottomless Swamp.  Dragon Kiss on an Undead target will grant immunity
+and Bottomless Bog.  Dragon Kiss on an Undead target will grant immunity
 to Raise, Arise, Resurrection, Flames of Rebirth, Reincarnate, Phoenix Down, 
 Kiss of Life and Revive.
 <a class="anchor" name="image">
@@ -2633,7 +2633,7 @@ Data section.  They will target a random enemy (healing spells will be cast
 on a random party member).
 
 Inflicted by: Confuse, Alluring Air, Lamia's Harp, Tempting Tango, Entice, Rocket
-              Punch, Will-o-Wisp, Lamia Kiss, Dud Potion (Turtle Shell+Dragon
+              Punch, Ignus Fatuus, Lamia Kiss, Dud Potion (Turtle Shell+Dragon
               Fang), Dark Sigh, Grand Cross, Dancing Dagger
 
 Cured by: Esuna, Panacea, Remedy, Smelling Salts, Recover, successful physical 
@@ -2649,7 +2649,7 @@ automatically hit.  Cannot evade attacks with Aegis Shield, Shirahadori,
 Sasuke's Katana, Defender, Main Gauche or Elven Mantle.  Cannot protect other party members 
 with Cover.
 
-Inflicted by: Constrict, Death Claw, Mind Blast, Blaster, Entangle, Momonga, 
+Inflicted by: Constrict, Death Claw, Mind Blast, Blaster, Entangle, Tree Squirrel, 
               Tame (whip magic), Whip, Chain Whip, Beast Killer, Dragon Whisker, 
               Grand Cross
 
@@ -2706,7 +2706,7 @@ status is dispelled after killing the four Barriers.
 <h4>SLOW</h4></a>
 ATB takes twice as long to fill.
 
-Inflicted by: Slow, Slowga, Thread, Slimer, Vine Hell
+Inflicted by: Slow, Slowga, Thread, Slimer, Bindweed
 
 Cured by: Dispel, Haste, Hastega, Blessed Kiss, Hasty-ade, Speed Shake, 
 Remedy, Dead Status, end of battle
@@ -2719,7 +2719,7 @@ ATB takes half as long to fill.
 Inflicted by: Haste, Hastega, Blessed Kiss, Hasty-ade, Speed Shake, 
               Hermes Sandals, use Masamune as Item
 
-Cured by: Dispel, Slow, Slowga, Thread, Slimer, Vine Hell, Dead Status, end of 
+Cured by: Dispel, Slow, Slowga, Thread, Slimer, Bindweed, Dead Status, end of 
           battle
 
 Note: Hermes Sandals cannot be dispelled.
@@ -2811,7 +2811,7 @@ Target's HP gradually decreases
 Inflicted by: Bio, Requiem, Mind Blast, Grand Cross, Rainbow Wind, Stomach 
               Acid, Mustard Bomb, Almagest, Quicksand, Frost, Slimer, Surge 
               Beam, Dud Potion (Elixir+Turtle Shell), Dark Sigh,
-              Shadow Flare, Thornlet
+              Shadowflare, Thornlet
 
 Cured by: Status duration elapsed, Dead Status, end of battle
 
@@ -4019,7 +4019,7 @@ STATS:
 MAGIC ELEMENT UP: Air
 ATTACK ELEMENT: 
 SPECIAL: Two-Handed OK
-SPELL/COMMAND: Gale Cut (12%)
+SPELL/COMMAND: Wind Slash (12%)
 STATUS ADDED: 
 USED AS ITEM: 
 JOB EQUIPPABLE: Samurai
@@ -6286,54 +6286,54 @@ Quick      0  77    A                   0    S  N  Double Commands   10000  <a c
 Banish     0  20   50                   0   SE  Y  Destroy           10000  <a class="link" href="#0x18">18</a>
 <a class="anchor" name="10.6">
 <h4>10.6) SUMMON MAGIC</h4></a>
-SPELL             ATT  MP  HT%  ELEM   STAT    DUR  TAR  R  SPECIAL  PRICE  DF
-Chocobo                 4                                              300   
-Choco Kick         30      100                   0  SEO  N  Physical        <a class="link" href="#0x0A">0A</a>
-Fat Chocobo        75        A                   0  SEO  N  Physical        <a class="link" href="#0x0A">0A</a>
+SPELL               ATT  MP  HT%  ELEM   STAT    DUR  TAR  R  SPECIAL  PRICE  DF
+Chocobo                   4                                              300   
+Choco Kick           30      100                   0  SEO  N  Physical        <a class="link" href="#0x0A">0A</a>
+Fat Chocobo          75        A                   0  SEO  N  Physical        <a class="link" href="#0x0A">0A</a>
 
-Sylph                   8                                              350  
-Whisperwind        30        A                   0  SEO  N  Drain to All    <a class="link" href="#0x1B">1B</a>
+Sylph                     8                                              350  
+Whisperwind          30        A                   0  SEO  N  Drain to All    <a class="link" href="#0x1B">1B</a>
 
-Remora                  2                                              250  
-Constrict           0      100         Parlyz  240  SEO  N                  <a class="link" href="#0x13">13</a>
+Remora                    2                                              250  
+Constrict             0      100         Parlyz  240  SEO  N                  <a class="link" href="#0x13">13</a>
 
-Shiva                  10                        
-Diamond Dust       38        A  Ice              0   AE  N                  <a class="link" href="#0x06">06</a>
+Shiva                    10                        
+Diamond Dust         38        A  Ice              0   AE  N                  <a class="link" href="#0x06">06</a>
 
-Ramuh                  12
-Judgment Bolt      53        A  Lit              0   AE  N                  <a class="link" href="#0x06">06</a>
+Ramuh                    12
+Judgment Bolt        53        A  Lit              0   AE  N                  <a class="link" href="#0x06">06</a>
 
-Ifrit                  11
-Hellfire           45        A  Fire             0   AE  N                  <a class="link" href="#0x06">06</a>
+Ifrit                    11
+Hellfire             45        A  Fire             0   AE  N                  <a class="link" href="#0x06">06</a>
 
-Titan                  25    
-Gaia's Wrath      110        A  Earth            0   AE  N  Ground Att      <a class="link" href="#0x2D">2D</a>
+Titan                    25    
+Gaia's Wrath        110        A  Earth            0   AE  N  Ground Att      <a class="link" href="#0x2D">2D</a>
 
-Golem                  18  
-Earthen Wall        0        A                   0   AA  N  Damage Wall     <a class="link" href="#0x23">23</a>
+Golem                    18  
+Earthen Wall          0        A                   0   AA  N  Damage Wall     <a class="link" href="#0x23">23</a>
 
-Catoblepas             33
-Evil Eye            0       99         Stone     A  SEO  N                  <a class="link" href="#0x12">12</a>
+Catoblepas               33
+Demon Eye             0       99         Stone     A  SEO  N                  <a class="link" href="#0x12">12</a>
 
-Carbuncle              45
-Ruby Light          0        A         Reflect  52*  AA  N                  <a class="link" href="#0x14">14</a>
+Carbuncle                45
+Ruby Light            0        A         Reflect  52*  AA  N                  <a class="link" href="#0x14">14</a>
 
-Syldra                 32
-Thunderstorm      165        A  Air              0   AE  N                  <a class="link" href="#0x06">06</a>
+Syldra                   32
+Thunderstorm        165        A  Air              0   AE  N                  <a class="link" href="#0x06">06</a>
 
-Odin                   48 
-Zantetsuken         0        A                   0   AE  N  Destroy         <a class="link" href="#0x18">18</a>
-Gungnir           255        A                   0   AE  N  Physical        <a class="link" href="#0x0A">0A</a>
+Odin                     48 
+Zantetsuken           0        A                   0   AE  N  Destroy         <a class="link" href="#0x18">18</a>
+Gungnir             255        A                   0   AE  N  Physical        <a class="link" href="#0x0A">0A</a>
 
-Phoenix                99 
-Flames of Rebirth 105        A  Fire             0   AE  N                  <a class="link" href="#0x06">06</a>
-Flames of Reb.   100%        A                   0  SAO* N  Rv,%HP,full MP  <a class="link" href="#0x1A">1A</a>
+Phoenix                  99 
+Flames of Rebirth   105        A  Fire             0   AE  N                  <a class="link" href="#0x06">06</a>
+Flames of Rebirth  100%        A                   0  SAO* N  Rv,%HP,full MP  <a class="link" href="#0x1A">1A</a>
 
-Leviathan              39
-Tsunami           195        A  Water            0   AE  N                  <a class="link" href="#0x06">06</a>
+Leviathan                39
+Tsunami             195        A  Water            0   AE  N                  <a class="link" href="#0x06">06</a>
 
-Bahamut                66 
-Mega Flare        250        A                   0   AE  N                  <a class="link" href="#0x06">06</a>
+Bahamut                  66 
+Mega Flare          250        A                   0   AE  N                  <a class="link" href="#0x06">06</a>
 <a class="anchor" name="10.7">
 <h4>10.7) SONG MAGIC</h4></a>
 SPELL           ATT  MP  HT%  ELEM   STAT    DUR  TAR  R  SPECIAL                  DF
@@ -6403,7 +6403,7 @@ Nothing              0   0    A                   0   SE  N                 <a c
 Wind Slash          50   0    A  Air              0   AE  N                 <a class="link" href="#0x06">06</a>
 No-Damage Magic      0   0    A                   0    S* N                 <a class="link" href="#0x00">00</a>
 Targeting            0   0    A                   0    E  Y                 <a class="link" href="#0x66">66</a>
-Gravity 100          0  10    A         Float     0   AE  Y  Remove Status  <a class="link" href="#0x19">19</a>
+100 Gs               0  10    A         Float     0   AE  Y  Remove Status  <a class="link" href="#0x19">19</a>
 Vanish               0   0    A         Dead      A    S* N                 <a class="link" href="#0x27">27</a>
 Reaper's Sword      75   0   99         Dead      0   SE  N                 <a class="link" href="#0x2E">2E</a>
 Punishment           0   0    A         Dead      0    E  N  Cast on Self   <a class="link" href="#0x27">27</a>
@@ -6426,7 +6426,7 @@ Needle               0   0    A         Drk,Si  240   SE  N                 <a c
 Maelstrom            0   0   99                   0   AE  N  HP to Critical <a class="link" href="#0x0F">0F</a>
 Bone                 0   0   50                   0   SE  N  HP to Critical <a class="link" href="#0x0F">0F</a>
 Tail Screw           0   0   99                   0  SEO  N  HP to Critical <a class="link" href="#0x0F">0F</a>
-Stomach Acid        30   0    A                 240   SE  N  HP Leak        <a class="link" href="#0x0C">0C</a>
+Digestive Acid      30   0    A                 240   SE  N  HP Leak        <a class="link" href="#0x0C">0C</a>
 Rocket Punch       1/2   0   99         Confuse   A   SE  N  % Current HP   <a class="link" href="#0x07">07</a>
 Mustard Bomb        75   0    A                 240   SE  N  HP Leak        <a class="link" href="#0x0C">0C</a>
 Almagest           180  50    A  Holy           240   AE  N  HP Leak        <a class="link" href="#0x0C">0C</a>
@@ -6478,7 +6478,7 @@ Mysidian Rabbit      0   0    A                   0    S  N                 <a c
 Squirrel            45   0    A                   0  SEO  N  Ground Attack  <a class="link" href="#0x2D">2D</a>
 Bee Swarm          100   0    A                   A   AE  N  Lvl Based Dam. <a class="link" href="#0x0B">0B</a>
 Nightingale         60   0    A         Po,Dk     0   AA  N  HP &amp; Status    <a class="link" href="#0x42">42</a>
-Momonga              0   0    A         Parlyz  240   AE  N                 <a class="link" href="#0x13">13</a>
+Tree Squirrel        0   0    A         Parlyz  240   AE  N                 <a class="link" href="#0x13">13</a>
 Falcon             3/4   0    A                   0   SE  N  % on Curr. HP  <a class="link" href="#0x07">07</a>
 Skunk                0   0    A         Po,Dk     A   AE  N                 <a class="link" href="#0x12">12</a>
 Wild Boar          180   0    A                   0  SEO  N  Ground Attack  <a class="link" href="#0x2D">2D</a>
@@ -6488,23 +6488,23 @@ Unicorn              0   0    A                   0   AA  N  Full Heal HP   <a c
 SPELL              ATT  MP  HT%  ELEM   STAT    DUR  TAR  R  SPECIAL        DF
 Gust                38   0    A  Air              0   SE  N                 <a class="link" href="#0x06">06</a>
 Earthquake          90   0    A  Earth            0   AE  N  Ground Attack  <a class="link" href="#0x2D">2D</a>
-Gale Cut            90   0    A  Air              0   AE  N                 <a class="link" href="#0x06">06</a>
-Tornado              0   0   99                   0   SE  N  HP to Crit.    <a class="link" href="#0x0F">0F</a>
+Wind Slash          90   0    A  Air              0   AE  N                 <a class="link" href="#0x06">06</a>
+Twister              0   0   99                   0   SE  N  HP to Crit.    <a class="link" href="#0x0F">0F</a>
 Branch Arrow        53   0    A                   0   SE  N  Physical       <a class="link" href="#0x0A">0A</a>
-Leaf Dance         100   0    A  Air    Dk(99%)   A   AE  N  Lvl Based Dam. <a class="link" href="#0x0B">0B</a>
+Leaf Swirl         100   0    A  Air    Dk(99%)   A   AE  N  Lvl Based Dam. <a class="link" href="#0x0B">0B</a>
 Branch Spear       150   0    A                   0   SE  N  Physical       <a class="link" href="#0x0A">0A</a>
-Vine Hell            0   0    A         Slow      A   AE  N                 <a class="link" href="#0x16">16</a>
-Dust Storm         100   0    A  E,A    Dk(50%)   A   AE  N  Lvl Based Dam. <a class="link" href="#0x0B">0B</a>
+Bindweed             0   0    A         Slow      A   AE  N                 <a class="link" href="#0x16">16</a>
+Sandstorm          100   0    A  E,A    Dk(50%)   A   AE  N  Lvl Based Dam. <a class="link" href="#0x0B">0B</a>
 Quicksand            0   0    A                   0   SE  N  Destroy        <a class="link" href="#0x18">18</a>
 Desert Storm        90   0    A  E,A              0   AE  N                 <a class="link" href="#0x06">06</a>
-Heat Sand          150   0    A  F,E              0   AE  N                 <a class="link" href="#0x06">06</a>
+Burning Sands      150   0    A  F,E              0   AE  N                 <a class="link" href="#0x06">06</a>
 Tsunami             38   0    A                   0   AE  N                 <a class="link" href="#0x06">06</a>
 Whirlpool            0   0   99                   0   SE  N  HP to Crit.    <a class="link" href="#0x0F">0F</a>
-Big Tsunami         90   0    A                   0   AE  N                 <a class="link" href="#0x06">06</a>
-Big Tsunami        120   0    A                   0   AE  N                 <a class="link" href="#0x06">06</a>
-Faen Fantom          0   0  100         Dead      A   SE  N                 <a class="link" href="#0x17">17</a>
-Will-o-Wisp        100   0    A  Fire   Mini(50%) A  SEO  N  Lvl Based Dam. <a class="link" href="#0x0B">0B</a>
-Bottomless Swamp     0   0   66                   0   AE  N  Destroy        <a class="link" href="#0x18">18</a>
+Big Wave            90   0    A                   0   AE  N                 <a class="link" href="#0x06">06</a>
+Big Wave           120   0    A                   0   AE  N                 <a class="link" href="#0x06">06</a>
+Phantom              0   0  100         Dead      A   SE  N                 <a class="link" href="#0x17">17</a>
+Ignus Fatuus       100   0    A  Fire   Mini(50%) A  SEO  N  Lvl Based Dam. <a class="link" href="#0x0B">0B</a>
+Bottomless Bog       0   0   66                   0   AE  N  Destroy        <a class="link" href="#0x18">18</a>
 Poison Mist        100   0    A  Poison Po(99%)   A   AE  N  Lvl Based Dam. <a class="link" href="#0x0B">0B</a>
 Waterfall          120   0    A  Water            0   SE  N                 <a class="link" href="#0x06">06</a>
 Stalactite         120   0    A                   0   SE  N                 <a class="link" href="#0x06">06</a>
@@ -7106,7 +7106,7 @@ STATUS DURATION: A
 SPECIAL: None
 MIX: Antidote, Dark Matter
 
-SPELL: Eye Drops
+SPELL: Eye Drop
 DAMAGE: 0                     DAMAGE FORMULA: <a class="link" href="#0x19">19</a>
 MAGIC HIT%: A
 TARGETTING: Single Target, Default Ally
@@ -7161,7 +7161,7 @@ STATUS DURATION: 0
 SPECIAL: Damage = Max HP - Current HP
 MIX: Dragon Fang, Dark Matter
 
-SPELL: Shadow Flare
+SPELL: Shadowflare
 DAMAGE: 240                   DAMAGE FORMULA: <a class="link" href="#0x0C">0C</a>
 MAGIC HIT%: A
 TARGETTING: Single Target, Default Ally
@@ -8854,7 +8854,7 @@ INITIAL STATUS: None
 SPECIALTY: Critical Attack
 SPECIALTY EFFECT: None
 SPELLS: Slimer
-CONTROL: Fight, Slimer, Stomach Acid
+CONTROL: Fight, Slimer, Digestive Acid
 BLUE MAGIC: None
 CATCH: Strong Fight
 DROP (ALWAYS): Nothing                 STEAL (COMMON): Ether
@@ -9535,14 +9535,14 @@ IMMUNITY: None
 INITIAL STATUS: None
 SPECIALTY: Critical Attack
 SPECIALTY EFFECT: None
-SPELLS: Stomach Acid
+SPELLS: Digestive Acid
 CONTROL: Fight, Transfusion
 BLUE MAGIC: Transfusion
 CATCH: Transfusion
 DROP (ALWAYS): Nothing                 STEAL (COMMON): Nothing
 DROP (RARE): Nothing                   STEAL (RARE): Ether
 AI SCRIPT:
-{Fight,Stomach Acid,Fight}
+{Fight,Digestive Acid,Fight}
 
 NAME: Treant
 LEVEL: 26                              EXP: 330
@@ -9796,14 +9796,14 @@ IMMUNITY: None
 INITIAL STATUS: None
 SPECIALTY: Critical Attack
 SPECIALTY EFFECT: 1.5 * Damage
-SPELLS: Stomach Acid
+SPELLS: Digestive Acid
 CONTROL: Fight, Specialty, Spore
 BLUE MAGIC: None
-CATCH: Stomach Acid
+CATCH: Digestive Acid
 DROP (ALWAYS): Nothing                 STEAL (COMMON): Eye Drops
 DROP (RARE): Nothing                   STEAL (RARE): Antidote
 AI SCRIPT:
-{Fight,Stomach Acid,Specialty}
+{Fight,Digestive Acid,Specialty}
 Fight
 
 NAME: Kuza Beast
@@ -9998,7 +9998,7 @@ INITIAL STATUS: None
 SPECIALTY: Eight Arms
 SPECIALTY EFFECT: 1.5 * Damage
 SPELLS: 
-CONTROL: Fight, Stomach Acid
+CONTROL: Fight, Digestive Acid
 BLUE MAGIC: None
 CATCH: Aqua Breath
 DROP (ALWAYS): Nothing                 STEAL (COMMON): Nothing
@@ -11555,7 +11555,7 @@ ELEMENTAL WEAKNESS: None
 CREATURE TYPE: Human
 IMMUNITY: None
 INITIAL STATUS: Float, Sleep
-SPECIALTY: Left Straight
+SPECIALTY: Left Jab
 SPECIALTY EFFECT: 1.5 * Damage
 SPELLS: Aeroga
 CONTROL: Fight, Specialty, Hurricane, Aeroga
@@ -12405,7 +12405,7 @@ SPECIALTY EFFECT: 1.5 * Damage
 SPELLS: Slimer
 CONTROL: Fight, Slimer
 BLUE MAGIC: None
-CATCH: Stomach Acid
+CATCH: Digestive Acid
 DROP (ALWAYS): Nothing                 STEAL (COMMON): Potion
 DROP (RARE): Nothing                   STEAL (RARE): Hi-Potion
 AI SCRIPT:
@@ -12995,7 +12995,7 @@ INITIAL STATUS: None
 SPECIALTY: Critical Attack
 SPECIALTY EFFECT: 1.5 * Damage
 SPELLS: Quicksand
-CONTROL: Fight, Stomach Acid, Quicksand
+CONTROL: Fight, Digestive Acid, Quicksand
 BLUE MAGIC: None
 CATCH: Wind Slash
 DROP (ALWAYS): Nothing                 STEAL (COMMON): Potion
@@ -13054,14 +13054,14 @@ IMMUNITY: None
 INITIAL STATUS: Protect
 SPECIALTY: Sap
 ENEMY SPECIALTY EFFECT: HP Leak
-SPELLS: Stomach Acid, Slimer, Entangle
-CONTROL: Fight, Stomach Acid, Entangle
+SPELLS: Digestive Acid, Slimer, Entangle
+CONTROL: Fight, Digestive Acid, Entangle
 BLUE MAGIC: None
-CATCH: Stomach Acid
+CATCH: Digestive Acid
 DROP (ALWAYS): Nothing                 STEAL (COMMON): Potion
 DROP (RARE): Power Drink               STEAL (RARE): Hi-Potion
 AI SCRIPT:
-{Stomach Acid,Fight,Specialty}
+{Digestive Acid,Fight,Specialty}
 React:Fight{
      {Slimer,Entangle,Nothing}
      }
@@ -13576,7 +13576,7 @@ IMMUNITY: None
 INITIAL STATUS: None
 SPECIALTY: Critical Attack
 SPECIALTY EFFECT: 1.5 * Damage
-SPELLS: Stomach Acid
+SPELLS: Digestive Acid
 CONTROL: Fight, Spore, Dischord
 BLUE MAGIC: None
 CATCH: Quicksand
@@ -13584,7 +13584,7 @@ DROP (ALWAYS): Nothing                 STEAL (COMMON): Hi-Potion
 DROP (RARE): Holy Water                STEAL (RARE): Potion
 AI SCRIPT:
 Condition:Alone{
-     {Fight,Stomach Acid,Nothing}
+     {Fight,Digestive Acid,Nothing}
      }
 {Fight,Fight,Nothing}
 
@@ -17293,7 +17293,7 @@ INITIAL STATUS: (Always) Regen
 SPECIALTY: Vacuum Wave
 SPECIALTY EFFECT: HP Leak, 1.5 * Damage
 SPELLS: Firaga, Thundaga, Blizzaga, Dispel, Slow, Slowga, Haste, Meteor, Doom, 
-Reverse Polarity, Earth Shaker, Hurricane, Zombie Breath, Level 3 Flare, Gravity 100, Gravity, 
+Reverse Polarity, Earth Shaker, Hurricane, Zombie Breath, Level 3 Flare, 100 Gs, Gravity, 
 Blaze, Bio
 CONTROL: Can't
 BLUE MAGIC: Doom, Level 3 Flare
@@ -17322,7 +17322,7 @@ Condition:HP &lt; 7000{
      }
 {Fight,Doom,Doom}
 {Reverse Polarity,Reverse Polarity,Specialty}
-{Gravity 100,Gravity,Fight}
+{100 Gs,Gravity,Fight}
 {Fight,Fight,Specialty}
 {Earth Shaker,Earth Shaker,Fight}
 {Blaze,Fight,Specialty}
@@ -17359,7 +17359,7 @@ IMMUNITY: Control, Catch
 INITIAL STATUS: None
 SPECIALTY: Critical Attack
 SPECIALTY EFFECT: None
-SPELLS: Dischord, Stomach Acid
+SPELLS: Dischord, Digestive Acid
 CONTROL: Can't
 BLUE MAGIC: None
 CATCH: Can't
@@ -17370,7 +17370,7 @@ AI SCRIPT:
 {Fight,Dischord,Specialty}
 {Fight,Dischord,Specialty}
 {Fight,Dischord,Specialty}
-Stomach Acid
+Digestive Acid
 React:Death{
      Flee
      }
@@ -18722,7 +18722,7 @@ IMMUNITY: Control, Catch
 INITIAL STATUS: None
 SPECIALTY: Critical Attack
 SPECIALTY EFFECT: None
-SPELLS: Gravity 100, Earth Shaker, Evil Eye
+SPELLS: 100 Gs, Earth Shaker, Evil Eye
 CONTROL: Can't
 BLUE MAGIC: None
 CATCH: Can't
@@ -18730,7 +18730,7 @@ DROP (ALWAYS): Gold Needle             STEAL (COMMON): Elixir
 DROP (RARE): Nothing                   STEAL (RARE): Cottage
 AI SCRIPT:
 Condition:Status:Party Member:Float{
-     Gravity 100
+     100 Gs
      }
 {Earth Shaker,Earth Shaker,Evil Eye}
 {Fight,Earth Shaker,Specialty}
